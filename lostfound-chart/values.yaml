@@ -1,5 +1,5 @@
 frontend:
-  replicas: 1
+  replicas: 2
   image: meghaamanickam/lostfound-frontend:v1
   containerPort: 80
 
