@@ -9,7 +9,7 @@ frontend:
   nodePort: 30080
 
 backend:
-  replicas: 1
+  replicas: 2
   image: meghaamanickam/lostfound-backend:v1
   containerPort: 5000
 
