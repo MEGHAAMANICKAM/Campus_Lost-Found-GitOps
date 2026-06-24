@@ -1,6 +1,6 @@
 frontend:
   replicas: 2
-  image: meghaamanickam/lostfound-frontend:v1
+  image: meghaamanickam/lostfound-frontend:4
   containerPort: 80
 
   serviceType: NodePort
@@ -10,7 +10,7 @@ frontend:
 
 backend:
   replicas: 2
-  image: meghaamanickam/lostfound-backend:v1
+  image: meghaamanickam/lostfound-backend:4
   containerPort: 5000
 
   serviceType: ClusterIP
