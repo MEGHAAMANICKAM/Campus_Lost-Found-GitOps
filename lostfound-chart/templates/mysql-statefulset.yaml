@@ -6,7 +6,6 @@ metadata:
 
 spec:
   serviceName: mysql
-
   replicas: 1
 
   selector:
@@ -21,7 +20,6 @@ spec:
     spec:
       containers:
       - name: mysql
-
         image: {{ .Values.mysql.image }}
 
         env:
@@ -42,10 +40,16 @@ spec:
           mountPath: /docker-entrypoint-initdb.d
 
       volumes:
-      - name: mysql-storage
-        persistentVolumeClaim:
-          claimName: mysql-pvc
-      
       - name: mysql-init-script
         configMap:
           name: mysql-init-script
+
+  volumeClaimTemplates:
+  - metadata:
+      name: mysql-storage
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: {{ .Values.mysql.storage }}
